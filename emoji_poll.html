@@ -55,6 +55,15 @@
       font-family: monospace;
       overflow: auto;
     }
+	.vs {
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 0 10px;
+      align-self: center;
+      display: flex;
+      align-items: center;
+    }
+
   </style>
 </head>
 <body>
@@ -62,22 +71,20 @@
     <div class="buttons">
       <div>
         <button onclick="vote('🐱')">🐱 Cat</button>
-        <span>vs</span>
+        <span class="vs">or</span>
         <button onclick="vote('🐶')">🐶 Dog</button>
       </div>
       <div>
         <button onclick="vote('🍕')">🍕 Pizza</button>
-        <span>vs</span>
+        <span class="vs">or</span>
         <button onclick="vote('🍔')">🍔 Burger</button>
       </div>
     </div>
   </div>
   <div class="right">
     <div class="results" id="results">
-      🐱: 0
-🐶: 0
-🍕: 0
-🍔: 0
+      🐱: 0 🐶: 0
+🍕: 0 🍔: 0
     </div>
     <div class="code">
 <pre><code>
@@ -88,7 +95,7 @@ function vote(emoji) {
 }
 function updateResults() {
   document.getElementById('results').textContent =
-    `🐱: ${votes['🐱']}\n🐶: ${votes['🐶']}\n🍕: ${votes['🍕']}\n🍔: ${votes['🍔']}`;
+    `🐱: ${votes['🐱']} 🐶: ${votes['🐶']}\n🍕: ${votes['🍕']} 🍔: ${votes['🍔']}`;
 }
 </code></pre>
     </div>
@@ -102,7 +109,7 @@ function updateResults() {
     }
     function updateResults() {
       document.getElementById('results').textContent =
-        `🐱: ${votes['🐱']}\n🐶: ${votes['🐶']}\n🍕: ${votes['🍕']}\n🍔: ${votes['🍔']}`;
+        `🐱: ${votes['🐱']} 🐶: ${votes['🐶']}\n🍕: ${votes['🍕']} 🍔: ${votes['🍔']}`;
     }
   </script>
 </body>
