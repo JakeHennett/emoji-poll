@@ -82,8 +82,7 @@
     </div>
   </div>
   <div class="right">
-    <div class="results" id="results">
-      🐱: 0 🐶: 0
+    <div class="results" id="results">🐱: 0 🐶: 0
 🍕: 0 🍔: 0
     </div>
     <div class="code">
@@ -108,7 +107,7 @@ function updateResults() {
       updateResults();
     }
     function updateResults() {
-      document.getElementById('results').textContent =
+      document.getElementById('results').innerText =
         `🐱: ${votes['🐱']} 🐶: ${votes['🐶']}\n🍕: ${votes['🍕']} 🍔: ${votes['🍔']}`;
     }
   </script>
