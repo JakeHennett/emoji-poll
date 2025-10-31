@@ -3,29 +3,81 @@
 <head>
   <title>Emoji Poll Party</title>
   <style>
-    body { font-family: sans-serif; display: flex; height: 100vh; margin: 0; }
-    .left, .right { flex: 1; padding: 20px; box-sizing: border-box; }
-    .left { background: #f0f8ff; }
-    .right { display: flex; flex-direction: column; background: #fffbe6; }
-    .buttons button {
-      font-size: 2rem; margin: 10px; padding: 10px 20px;
-      border: none; border-radius: 10px; cursor: pointer;
+    body {
+      font-family: sans-serif;
+      display: flex;
+      height: 100vh;
+      margin: 0;
     }
-    .results { flex: 1; font-size: 1.5rem; padding: 10px; }
-    .code { flex: 1; background: #eee; padding: 10px; font-family: monospace; overflow: auto; }
+    .left, .right {
+      flex: 1;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .left {
+      background: #f0f8ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .buttons div {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .buttons button {
+      font-size: 2rem;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .right {
+      display: flex;
+      flex-direction: column;
+      background: #fffbe6;
+    }
+    .results {
+      flex: 1;
+      font-size: 1.5rem;
+      padding: 10px;
+      white-space: pre-line;
+    }
+    .code {
+      flex: 1;
+      background: #eee;
+      padding: 10px;
+      font-family: monospace;
+      overflow: auto;
+    }
   </style>
 </head>
 <body>
   <div class="left">
-    <h2>Which is better?!</h2>
-<div class="buttons">
-  <div><button onclick="vote('🐱')">🐱 Cat</button> vs <button onclick="vote('🐶')">🐶 Dog</button></div>
-  <div><button onclick="vote('🍕')">🍕 Pizza</button> vs <button onclick="vote('🍔')">🍔 Burger</button></div>
-</div>
+    <div class="buttons">
+      <div>
+        <button onclick="vote('🐱')">🐱 Cat</button>
+        <span>vs</span>
+        <button onclick="vote('🐶')">🐶 Dog</button>
+      </div>
+      <div>
+        <button onclick="vote('🍕')">🍕 Pizza</button>
+        <span>vs</span>
+        <button onclick="vote('🍔')">🍔 Burger</button>
+      </div>
+    </div>
   </div>
   <div class="right">
     <div class="results" id="results">
-      🐱: 0 | 🐶: 0 | 🍕: 0 | 🍔: 0
+      🐱: 0
+🐶: 0
+🍕: 0
+🍔: 0
     </div>
     <div class="code">
 <pre><code>
@@ -36,7 +88,7 @@ function vote(emoji) {
 }
 function updateResults() {
   document.getElementById('results').textContent =
-    `🐱: ${votes['🐱']} | 🐶: ${votes['🐶']} | 🍕: ${votes['🍕']} | 🍔: ${votes['🍔']}`;
+    `🐱: ${votes['🐱']}\n🐶: ${votes['🐶']}\n🍕: ${votes['🍕']}\n🍔: ${votes['🍔']}`;
 }
 </code></pre>
     </div>
@@ -50,7 +102,7 @@ function updateResults() {
     }
     function updateResults() {
       document.getElementById('results').textContent =
-        `🐱: ${votes['🐱']} | 🐶: ${votes['🐶']} | 🍕: ${votes['🍕']} | 🍔: ${votes['🍔']}`;
+        `🐱: ${votes['🐱']}\n🐶: ${votes['🐶']}\n🍕: ${votes['🍕']}\n🍔: ${votes['🍔']}`;
     }
   </script>
 </body>
