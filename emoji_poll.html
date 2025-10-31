@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Emoji Poll Party</title>
+  <style>
+    body { font-family: sans-serif; display: flex; height: 100vh; margin: 0; }
+    .left, .right { flex: 1; padding: 20px; box-sizing: border-box; }
+    .left { background: #f0f8ff; }
+    .right { display: flex; flex-direction: column; background: #fffbe6; }
+    .buttons button {
+      font-size: 2rem; margin: 10px; padding: 10px 20px;
+      border: none; border-radius: 10px; cursor: pointer;
+    }
+    .results { flex: 1; font-size: 1.5rem; padding: 10px; }
+    .code { flex: 1; background: #eee; padding: 10px; font-family: monospace; overflow: auto; }
+  </style>
+</head>
+<body>
+  <div class="left">
+    <h2>Vote with Emojis!</h2>
+    <div class="buttons">
+      <button onclick="vote('🐱')">🐱 Cat</button>
+      <button onclick="vote('🐶')">🐶 Dog</button>
+      <button onclick="vote('🍕')">🍕 Pizza</button>
+      <button onclick="vote('🍔')">🍔 Burger</button>
+    </div>
+  </div>
+  <div class="right">
+    <div class="results" id="results">
+      🐱: 0 | 🐶: 0 | 🍕: 0 | 🍔: 0
+    </div>
+    <div class="code">
+<pre><code>
+let votes = { '🐱': 0, '🐶': 0, '🍕': 0, '🍔': 0 };
+function vote(emoji) {
+  votes[emoji]++;
+  updateResults();
+}
+function updateResults() {
+  document.getElementById('results').textContent =
+    `🐱: ${votes['🐱']} | 🐶: ${votes['🐶']} | 🍕: ${votes['🍕']} | 🍔: ${votes['🍔']}`;
+}
+</code></pre>
+    </div>
+  </div>
+
+  <script>
+    let votes = { '🐱': 0, '🐶': 0, '🍕': 0, '🍔': 0 };
+    function vote(emoji) {
+      votes[emoji]++;
+      updateResults();
+    }
+    function updateResults() {
+      document.getElementById('results').textContent =
+        `🐱: ${votes['🐱']} | 🐶: ${votes['🐶']} | 🍕: ${votes['🍕']} | 🍔: ${votes['🍔']}`;
+    }
+  </script>
+</body>
+</html>
